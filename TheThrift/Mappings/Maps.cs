@@ -13,6 +13,7 @@ namespace TheThrift.Mappings
         public Maps()
         {
             CreateMap<Customer, CustomerVM>().ReverseMap();
+            CreateMap<Client, ClientVM>().ReverseMap();
             CreateMap<Expenses, ExpensesVM>().ReverseMap();
             CreateMap<Salary, SalaryVM>().ReverseMap();
             CreateMap<LoanType, LoanTypeVM>().ReverseMap();

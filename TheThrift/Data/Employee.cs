@@ -14,8 +14,11 @@ namespace TheThrift.Data
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string TaxId { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateJoined { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateCreated { get; set; }
     }
 }

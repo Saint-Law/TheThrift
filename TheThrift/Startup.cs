@@ -37,6 +37,7 @@ namespace TheThrift
 
             //Add reference for Contract and Repository to Startup file : saintlaw
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IExpensesRepository, ExpensesRepository>();
             services.AddScoped<ISalaryRepository, SalaryRepository>();
             services.AddScoped<ILoanTypeRepository, LoanTypeRepository>();
@@ -46,14 +47,20 @@ namespace TheThrift
             //Add reference for Automapper to Startup file : saintlaw
             services.AddAutoMapper(typeof(Maps));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>()
+                //adding default roles and admin user seeding the database
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(
+            IApplicationBuilder app, 
+            IWebHostEnvironment env,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -69,10 +76,14 @@ namespace TheThrift
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseDefaultFiles();
             app.UseRouting();
+            
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            SeedData.Seed(userManager, roleManager);
 
             app.UseEndpoints(endpoints =>
             {

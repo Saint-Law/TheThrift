@@ -10,7 +10,8 @@ namespace TheThrift.Data
     {
         [Key]
         public int Id { get; set; }
-        public int AccountNo { get; set; }
+        [Required]
+        public string AccountNo { get; set; }
         public int ThriftPlan { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }

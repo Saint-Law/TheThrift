@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -25,7 +29,7 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Customer" asp-action="Index">Customer</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Clients" asp-action="Index">Customer</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Expenses" asp-action="Index">Expenses</a>
@@ -33,17 +37,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-controller="Salary" asp-action="Index">Salary</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Manage Loan
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item text-dark" asp-area="" asp-controller="LoanTypes" asp-action="Index">Loan Types</a>
-                                <a class="dropdown-item text-dark" href="#">Loan Allocations</a>
-                                <a class="dropdown-item text-dark" href="#">Loan Requests</a>
-                                <a class="dropdown-item text-dark" href="#">Employees</a>
-                            </div>
-                        </li>
+
+                        //restricting the menu according to the user
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            //assigning this menu to only administrator
+                            if (User.IsInRole("Administrator"))
+                            {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Manage Loan
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <a class="dropdown-item text-dark" asp-area="" asp-controller="LoanTypes" asp-action="Index">Loan Types</a>
+                                        <a class="dropdown-item text-dark" href="#">Loan Allocations</a>
+                                        <a class="dropdown-item text-dark" href="#">Loan Requests</a>
+                                        <a class="dropdown-item text-dark" href="#">Employees</a>
+                                    </div>
+                                </li>
+                            }
+                        }
+
                     </ul>
                 </div>
             </div>

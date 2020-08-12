@@ -100,8 +100,8 @@ namespace TheThrift.Controllers
                 {
                     return View(collection);
                 }
-                var salary = _mapper.Map<Expenses>(collection);
-                var isSuccess = _repo.Update(salary);
+                var expenses = _mapper.Map<Expenses>(collection);
+                var isSuccess = _repo.Update(expenses);
                 if (!isSuccess)
                 {
                     ModelState.AddModelError("", "Something Went Wrong...");

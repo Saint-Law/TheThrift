@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using TheThrift.Contracts;
@@ -11,6 +12,7 @@ using TheThrift.Models;
 
 namespace TheThrift.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     public class LoanTypesController : Controller
     {
         private readonly ILoanTypeRepository _repo;

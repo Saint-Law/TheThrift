@@ -15,14 +15,17 @@ namespace TheThrift.Data
         [ForeignKey("RequestingEmployeeId")]
         public Employee RequestingEmployee { get; set; }
         public string RequestingEmployeeId { get; set; }
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         [ForeignKey("LeaveTypeId")]
         public LoanType LeaveType { get; set; }
         public int LeaveTypeId { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateRequested { get; set; }
         public string RequestComments { get; set; }
         public bool Cancelled { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateActioned { get; set; }
         public bool? Approved { get; set; }
         [ForeignKey("ApprovedById")]

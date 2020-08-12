@@ -12,6 +12,7 @@ namespace TheThrift.Data
         [Key]
         public int Id { get; set; }
         public int NumberOfDays { get; set; }
+        [DataType(DataType.Date)]
         public DateTime DateCreated { get; set; }
 
         [ForeignKey("EmployeeId")]

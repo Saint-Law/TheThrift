@@ -51,6 +51,8 @@ namespace TheThrift.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ThriftPlan = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
+                    AccountNo = table.Column<string>(nullable: true),
+                    ShopNo = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     OfficeAddress = table.Column<string>(nullable: true),
