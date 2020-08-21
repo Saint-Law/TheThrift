@@ -14,7 +14,8 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="AccountNo" class="control-label"></label>
-                <input asp-for="AccountNo" class="form-control" />
+                <input class="form-control account_no" value="Generating Account Number..." readonly />
+                <input asp-for="AccountNo" type="hidden" value=""/>
                 <span asp-validation-for="AccountNo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <textarea asp-for="Address" class="form-control" ></textarea>
+                <textarea asp-for="Address" class="form-control"></textarea>
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -58,8 +59,10 @@
                 <span asp-validation-for="DateRegistered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary btn-block" />
-                <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />               
+            </div>
+            <div class="form-group">
+                <a asp-action="Index" class="btn btn-outline-info btn-block" >Back to List</a>
             </div>
         </form>
     </div>

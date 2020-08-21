@@ -3,26 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheThrift.Data;
 
 namespace TheThrift
 {
     public class SeedData
     {
-        public static void Seed(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        public static void Seed(UserManager<Employee> userManager, RoleManager<IdentityRole> roleManager)
         {
             //putting userRole and Users into the main section to create the authentication
             SeedRoles(roleManager);
             SeedUsers(userManager);
         }
 
-        private static void SeedUsers(UserManager<IdentityUser> userManager)
+        private static void SeedUsers(UserManager<Employee> userManager)
         {
             //checking if a user exist and if not create it.
-            if (userManager.FindByNameAsync("Admin").Result == null)
+            if (userManager.FindByNameAsync("Admin@localhost.com").Result == null)
             {
-                var user = new IdentityUser
+                var user = new Employee
                 {
-                    UserName = "Admin",
+                    UserName = "Admin@localhost.com",
                     Email = "Admin@localhost.com"
                 };
                 var result = userManager.CreateAsync(user, "Password1.").Result;
@@ -55,8 +56,13 @@ namespace TheThrift
                 {
                     Name = "Employee"
                 };
-                var result = roleManager.CreateAsync(role).Result;
+                var result = roleManager.CreateAsync(role).Result; 
             }
+        }
+
+        internal static void Seed(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
+        {
+            throw new NotImplementedException();
         }
     }
 }

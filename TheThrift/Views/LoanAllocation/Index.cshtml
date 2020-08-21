@@ -1,0 +1,37 @@
+﻿@model TheThrift.Models.CreateLoanAllocationVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table id="tblData" class="table">
+    <thead>
+        <tr>
+            <th>
+                Laon Type
+            </th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.LoanTypes)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+
+                <td>
+                    @*@Html.ActionLink("Allocate To Employee", "SetLeave", new { id = item.Id })*@
+
+                    <a class="btn btn-outline-success" asp-action="SetLoan" asp-route-id="@item.Id">
+                        <i class="fa fa-pencil"></i> Allocate To Employees
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

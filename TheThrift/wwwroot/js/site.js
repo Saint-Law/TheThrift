@@ -6,3 +6,12 @@
  $(document).ready(function () {
     $('#tblData').DataTable();
  });
+
+$(document).ready(() => {
+    setTimeout(() => {
+        var acc_no = new Date().getTime().toString();
+        acc_no = acc_no.substr(3)
+        $(".account_no").val(acc_no)
+        $(".account_no").next().val(acc_no)
+    }, 2000)
+})

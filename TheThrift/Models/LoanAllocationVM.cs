@@ -18,33 +18,31 @@ namespace TheThrift.Models
         public EmployeeVM Employee { get; set; }
         public string EmployeeId { get; set; }
         public int Period { get; set; }
-        public LoanTypeVM LeaveType { get; set; }
-        public int LeaveTypeId { get; set; }
+        public LoanTypeVM LoanType { get; set; }
+        public int LoanTypeId { get; set; }
 
-        public IEnumerable<SelectListItem> Employees { get; set; }
-        public IEnumerable<SelectListItem> LeaveTypes { get; set; }
     }
 
-    public class CreateLeaveAllocationVM
+    public class CreateLoanAllocationVM
     {
-        public int NumberUpdated { get; set; }
-        public List<LoanTypeVM> LeaveTypes { get; set; }
+        public int NumberUpdated { get; set; } 
+        public List<LoanTypeVM> LoanTypes { get; set; }
     }
 
-    public class EditLeaveAllocationVM
+    public class EditLoanAllocationVM
     {
         public int Id { get; set; }
         public EmployeeVM Employee { get; set; }
         public string EmployeeId { get; set; }
         [Display(Name = "Number Of Days")]
         public int NumberofDays { get; set; }
-        public LoanTypeVM LeaveType { get; set; }
+        public LoanTypeVM LoanType { get; set; } 
     }
 
-    public class ViewAllocationVM
+    public class ViewLoanAllocationVM
     {
         public EmployeeVM Employee { get; set; }
         public string EmployeeId { get; set; }
-        public List<LoanAllocaitionVM> LeaveAllocaitions { get; set; }
+        public List<LoanAllocaitionVM> LoanAllocaitions { get; set; } 
     }
 }

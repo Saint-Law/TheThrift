@@ -19,10 +19,9 @@ namespace TheThrift.Data
         public DbSet<Expenses> Expensess { get; set; }
         public DbSet<LoanType> LoanTypes { get; set; }
         public DbSet<LoanRequest> LoanRequests { get; set; }
+        public DbSet<ExpensesType> ExpensesTypes { get; set; }
         public DbSet<LoanAllocation> LoanAllocations { get; set; } 
-        public DbSet<Client> Clients { get; set; }
-        public DbSet<TheThrift.Models.CustomerVM> CustomerVM { get; set; }
-        public DbSet<TheThrift.Models.ClientVM> ClientVM { get; set; }
+        public DbSet<Client> Clients { get; set; }       
 
     }
 }

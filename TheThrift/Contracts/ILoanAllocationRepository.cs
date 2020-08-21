@@ -6,8 +6,9 @@ using TheThrift.Data;
 
 namespace TheThrift.Contracts
 {
-    interface ILoanAllocationRepository : IRepositoryBase<LoanAllocation>
+    public interface ILoanAllocationRepository : IRepositoryBase<LoanAllocation>
     {
-
+        bool CheckAllocation(int loantypeid, string employeeid);
+        ICollection<LoanAllocation> GetLoanAllocationByEmployee(string id);
     }
 }

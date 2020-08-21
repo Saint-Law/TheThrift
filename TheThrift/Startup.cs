@@ -47,7 +47,7 @@ namespace TheThrift
             //Add reference for Automapper to Startup file : saintlaw
             services.AddAutoMapper(typeof(Maps));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<Employee>()
                 //adding default roles and admin user seeding the database
                 .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -59,7 +59,7 @@ namespace TheThrift
         public void Configure(
             IApplicationBuilder app, 
             IWebHostEnvironment env,
-            UserManager<IdentityUser> userManager,
+            UserManager<Employee> userManager,
             RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())

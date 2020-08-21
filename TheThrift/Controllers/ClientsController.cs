@@ -26,6 +26,7 @@ namespace TheThrift.Controllers
         {
             var customers = _repo.FindAll().ToList();
             var collection = _mapper.Map<List<Client>, List<ClientVM>>(customers);
+                //.OrderBy(b => b.DateRegistered);
             return View(collection);
         }
 

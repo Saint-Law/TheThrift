@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,39 +15,70 @@ namespace TheThrift.Repository
         {
             _db = db; 
         }
+
+        public bool CheckAllocation(int loantypeid, string employeeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .Where(q => q.EmployeeId == employeeid 
+                        && q.LoanTypeId == loantypeid && q.Period == period)
+                .Any();
+        }
+
         public bool Create(LoanAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.LoanAllocations.Add(entity);
+            return Save();
         }
 
         public bool Delete(LoanAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.LoanAllocations.Remove(entity);
+            return Save();
         }
 
         public ICollection<LoanAllocation> FindAll()
         {
-            throw new NotImplementedException();
+            var loanAllocations = _db.LoanAllocations
+                .Include(r => r.LoanType)
+                .Include(s => s.Employee)
+                .ToList();
+            return loanAllocations;
         }
 
         public LoanAllocation FindById(int id)
         {
-            throw new NotImplementedException();
+            var loanAllocations = _db.LoanAllocations
+                .Include(r => r.LoanType)
+                .Include(s => s.Employee)
+                .FirstOrDefault(q => q.Id == id);
+            return loanAllocations;
+        }
+
+        public ICollection<LoanAllocation> GetLoanAllocationByEmployee(string id)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .Where(q => q.EmployeeId == id && q.Period == period)
+                .ToList();
         }
 
         public bool isExist(int id)
         {
-            throw new NotImplementedException();
+            var exists = _db.LoanAllocations.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var changes = _db.SaveChanges();
+            return changes > 0;
         }
 
         public bool Update(LoanAllocation entity)
         {
-            throw new NotImplementedException();
+            _db.LoanAllocations.Update(entity);
+            return Save();
         }
     }
 }

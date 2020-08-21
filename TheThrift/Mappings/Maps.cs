@@ -19,6 +19,7 @@ namespace TheThrift.Mappings
             CreateMap<LoanType, LoanTypeVM>().ReverseMap();
             CreateMap<LoanRequest, LoanRequestVM>().ReverseMap();
             CreateMap<LoanAllocation, LoanAllocaitionVM>().ReverseMap();
+            CreateMap<LoanAllocation, EditLoanAllocationVM>().ReverseMap();
             CreateMap<Employee, EmployeeVM>().ReverseMap();
         }
     }

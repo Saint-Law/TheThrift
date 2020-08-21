@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@using TheThrift.Data
+@inject SignInManager<Employee> SignInManager
+@inject UserManager<Employee> UserManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +39,10 @@
                             <a class="nav-link text-white" asp-area="" asp-controller="Salary" asp-action="Index">Salary</a>
                         </li>
 
-                        //restricting the menu according to the user
+                        
                         @if (SignInManager.IsSignedIn(User))
                         {
+                            //restricting menu according to the user
                             //assigning this menu to only administrator
                             if (User.IsInRole("Administrator"))
                             {
@@ -50,9 +52,9 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item text-dark" asp-area="" asp-controller="LoanTypes" asp-action="Index">Loan Types</a>
-                                        <a class="dropdown-item text-dark" href="#">Loan Allocations</a>
+                                        <a class="dropdown-item text-dark" asp-area="" asp-controller="LoanAllocation" asp-action="Index">Loan Allocations</a>
                                         <a class="dropdown-item text-dark" href="#">Loan Requests</a>
-                                        <a class="dropdown-item text-dark" href="#">Employees</a>
+                                        <a class="dropdown-item text-dark"  asp-controller="LoanAllocation" asp-action="ListEmployees">Employees</a>
                                     </div>
                                 </li>
                             }

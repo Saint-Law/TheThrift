@@ -16,37 +16,44 @@ namespace TheThrift.Repository
         }
         public bool Create(LoanRequest entity)
         {
-            throw new NotImplementedException();
+            _db.LoanRequests.Add(entity);
+            return Save();
         }
 
         public bool Delete(LoanRequest entity)
         {
-            throw new NotImplementedException();
+            _db.LoanRequests.Remove(entity);
+            return Save();
         }
 
         public ICollection<LoanRequest> FindAll()
         {
-            throw new NotImplementedException();
+            var requests = _db.LoanRequests.ToList();
+            return requests;
         }
 
         public LoanRequest FindById(int id)
         {
-            throw new NotImplementedException();
+            var requests = _db.LoanRequests.Find(id);
+            return requests;
         }
 
         public bool isExist(int id)
         {
-            throw new NotImplementedException();
+            var exists = _db.LoanTypes.Any(q => q.Id == id);
+            return exists;
         }
 
         public bool Save()
         {
-            throw new NotImplementedException();
+            var exist = _db.SaveChanges();
+            return exist > 0;
         }
 
         public bool Update(LoanRequest entity)
         {
-            throw new NotImplementedException();
+            _db.LoanRequests.Update(entity);
+            return Save();
         }
     }
 }

@@ -18,10 +18,10 @@ namespace TheThrift.Data
         [ForeignKey("EmployeeId")]
         public Employee Employee { get; set; }
         public string EmployeeId { get; set; }
-        public LoanType LeaveType { get; set; }
+        public LoanType LoanType { get; set; }
 
-        [ForeignKey("LeaveTypeId")]
-        public int LeaveTypeId { get; set; }
+        [ForeignKey("LoanTypeId")]
+        public int LoanTypeId { get; set; }
         public int Period { get; set; }
     }
 }
