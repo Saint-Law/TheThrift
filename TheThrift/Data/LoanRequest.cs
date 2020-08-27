@@ -19,8 +19,8 @@ namespace TheThrift.Data
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         [ForeignKey("LeaveTypeId")]
-        public LoanType LeaveType { get; set; }
-        public int LeaveTypeId { get; set; }
+        public LoanType LoanType { get; set; }
+        public int LoanTypeId { get; set; } 
         [DataType(DataType.Date)]
         public DateTime DateRequested { get; set; }
         public string RequestComments { get; set; }

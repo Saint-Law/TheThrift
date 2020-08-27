@@ -63,6 +63,13 @@ namespace TheThrift.Repository
                 .ToList();
         }
 
+        public LoanAllocation GetLoanAllocationByEmployeeAndType(string id, int loantypeid)
+        {
+            var period = DateTime.Now.Year;
+            return FindAll()
+                .FirstOrDefault(q => q.EmployeeId == id && q.Period == period && q.LoanTypeId == loantypeid);
+        }
+
         public bool isExist(int id)
         {
             var exists = _db.LoanAllocations.Any(q => q.Id == id);

@@ -10,5 +10,6 @@ namespace TheThrift.Contracts
     {
         bool CheckAllocation(int loantypeid, string employeeid);
         ICollection<LoanAllocation> GetLoanAllocationByEmployee(string id);
+        LoanAllocation GetLoanAllocationByEmployeeAndType(string id, int loantypeid);
     }
 }

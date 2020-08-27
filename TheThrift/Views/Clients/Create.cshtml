@@ -9,49 +9,68 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="AccountNo" class="control-label"></label>
-                <input class="form-control account_no" value="Generating Account Number..." readonly />
-                <input asp-for="AccountNo" type="hidden" value=""/>
-                <span asp-validation-for="AccountNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <textarea asp-for="Address" class="form-control"></textarea>
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OfficeAddress" class="control-label"></label>
-                <textarea asp-for="OfficeAddress" class="form-control"></textarea>
-                <span asp-validation-for="OfficeAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShopNo" class="control-label"></label>
-                <input asp-for="ShopNo" class="form-control" />
-                <span asp-validation-for="ShopNo" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact" class="control-label"></label>
-                <input asp-for="Contact" class="form-control" />
-                <span asp-validation-for="Contact" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ThriftPlan" class="control-label"></label>
-                <input asp-for="ThriftPlan" class="form-control" />
-                <span asp-validation-for="ThriftPlan" class="text-danger"></span>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="AccountNo" class="control-label"></label>
+                        <input class="form-control account_no" value="Generating Account Number..." readonly />
+                        <input asp-for="AccountNo" type="hidden" value="" />
+                        <span asp-validation-for="AccountNo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ThriftPlan" class="control-label"></label>
+                        <input asp-for="ThriftPlan" class="form-control" />
+                        <span asp-validation-for="ThriftPlan" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="FirstName" class="control-label"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LastName" class="control-label"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Address" class="control-label"></label>
+                        <textarea asp-for="Address" class="form-control"></textarea>
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OfficeAddress" class="control-label"></label>
+                        <textarea asp-for="OfficeAddress" class="form-control"></textarea>
+                        <span asp-validation-for="OfficeAddress" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Contact" class="control-label"></label>
+                        <input asp-for="Contact" class="form-control" />
+                        <span asp-validation-for="Contact" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ShopNo" class="control-label"></label>
+                        <input asp-for="ShopNo" class="form-control" />
+                        <span asp-validation-for="ShopNo" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="DateRegistered" class="control-label"></label>
@@ -59,10 +78,8 @@
                 <span asp-validation-for="DateRegistered" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary btn-block" />               
-            </div>
-            <div class="form-group">
-                <a asp-action="Index" class="btn btn-outline-info btn-block" >Back to List</a>
+                <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                <a asp-action="Index" class="btn btn-outline-info btn-block">Back to List</a>
             </div>
         </form>
     </div>

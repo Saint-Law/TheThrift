@@ -43,6 +43,6 @@ namespace TheThrift.Models
     {
         public EmployeeVM Employee { get; set; }
         public string EmployeeId { get; set; }
-        public List<LoanAllocaitionVM> LoanAllocaitions { get; set; } 
+        public List<LoanAllocaitionVM> LoanAllocations { get; set; } 
     }
 }

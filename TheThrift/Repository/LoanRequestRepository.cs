@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,13 +29,21 @@ namespace TheThrift.Repository
 
         public ICollection<LoanRequest> FindAll()
         {
-            var requests = _db.LoanRequests.ToList();
+            var requests = _db.LoanRequests
+                .Include(r => r.RequestingEmployee)
+                .Include(r => r.ApprovedBy)
+                .Include(r => r.LoanType)
+                .ToList();
             return requests;
         }
 
         public LoanRequest FindById(int id)
         {
-            var requests = _db.LoanRequests.Find(id);
+            var requests = _db.LoanRequests
+                .Include(r => r.RequestingEmployee)
+                .Include(r => r.ApprovedBy)
+                .Include(r => r.LoanType)
+                .FirstOrDefault( r => r.Id==id);
             return requests;
         }
 

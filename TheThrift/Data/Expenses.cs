@@ -9,7 +9,7 @@ namespace TheThrift.Data
     public class Expenses
     {
         public int Id { get; set; }
-        public string ExpensesType { get; set; }
+        public string ExpensesType { get; set; } 
         public int Amount { get; set; }
         public string Descriptions { get; set; }
         [DataType(DataType.Date)]

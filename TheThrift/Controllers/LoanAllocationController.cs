@@ -82,7 +82,7 @@ namespace TheThrift.Controllers
             var collection = new ViewLoanAllocationVM
             {
                 Employee = employee,
-                LoanAllocaitions = allocation
+                LoanAllocations = allocation
             };
             return View(collection);
         }

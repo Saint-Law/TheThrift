@@ -14,14 +14,12 @@ namespace TheThrift.Data
         {
         }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Salary> Salaries { get; set; }
         public DbSet<Expenses> Expensess { get; set; }
-        public DbSet<LoanType> LoanTypes { get; set; }
         public DbSet<LoanRequest> LoanRequests { get; set; }
+        public DbSet<LoanType> LoanTypes { get; set; }
         public DbSet<ExpensesType> ExpensesTypes { get; set; }
         public DbSet<LoanAllocation> LoanAllocations { get; set; } 
         public DbSet<Client> Clients { get; set; }       
-
     }
 }

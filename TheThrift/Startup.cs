@@ -36,7 +36,6 @@ namespace TheThrift
                     Configuration.GetConnectionString("DefaultConnection")));
 
             //Add reference for Contract and Repository to Startup file : saintlaw
-            services.AddScoped<ICustomerRepository, CustomerRepository>();
             services.AddScoped<IClientRepository, ClientRepository>();
             services.AddScoped<IExpensesRepository, ExpensesRepository>();
             services.AddScoped<ISalaryRepository, SalaryRepository>();

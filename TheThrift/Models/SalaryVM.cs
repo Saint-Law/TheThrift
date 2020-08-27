@@ -14,6 +14,8 @@ namespace TheThrift.Models
         public string StaffName { get; set; }
         [Required]
         public int Amount { get; set; }
+        [Display(Name = "Salary Date")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         public DateTime DateCreated { get; set; }
     }

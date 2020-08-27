@@ -22,6 +22,7 @@ namespace TheThrift.Models
         public string OfficeAddress { get; set; }
         [Display(Name = "Shop No")]
         public string ShopNo { get; set; }
+        [Display(Name = "Phone Number")]
         public string Contact { get; set; }
         [Display(Name = "Date Registered")]
         [DataType(DataType.Date)]
